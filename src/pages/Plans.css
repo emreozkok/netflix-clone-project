@@ -1,0 +1,19 @@
+.first{
+display: flex;
+justify-content: space-between;
+padding: 1;
+opacity: 0.8;
+cursor: pointer;
+margin-bottom: 20px;
+}
+
+.first:hover{
+    opacity: 1;
+}
+.first > button{
+    padding: 10px 20px;
+    border: none;
+    background-color: #e50914;
+    color: #fff;
+    font-size: 1rem;
+}

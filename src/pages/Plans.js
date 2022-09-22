@@ -29,7 +29,10 @@ function Plans() {
   useEffect(() => {
     const getPlans = async () => {
       const productsArray = [];
-      const querySnapshot = await getDocs(collection(db, "products"), where("active", "==", true));
+      const querySnapshot = await getDocs(
+        collection(db, "products"),
+        where("active", "==", true)
+      );
       querySnapshot.forEach(async (doc) => {
         const productData = { ...doc.data(), ...{ price: 100, id: doc.id } };
         productsArray.push(productData);
@@ -50,14 +53,15 @@ function Plans() {
 
   return (
     <div className="plan">
-      <ul>
-        {products.map((el) => (
-          <li key={el.id}>
+      {products.map((el) => (
+        <div className="first" key={el.id}>
+          <div className="second">
             <p>{el.name}</p>
-            <p>{el.price}</p>
-          </li>
-        ))}
-      </ul>
+            <p>{el.description}</p>
+          </div>
+          <button>Subscribe</button>
+        </div>
+      ))}
     </div>
   );
 }
